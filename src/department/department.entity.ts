@@ -1,14 +1,14 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { Process } from '../process/process.entity';
 
-@Entity()
-export class Area {
+@Entity({ name: 'departments' })
+export class Department {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  name: string;
-
-  @OneToMany(() => Process, (process) => process.area)
+  title: string;
+  
+  @OneToMany(() => Process, (process) => process.department)
   processes: Process[];
 }

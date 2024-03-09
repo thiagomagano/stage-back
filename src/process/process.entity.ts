@@ -5,8 +5,9 @@ import {
   OneToMany,
   ManyToOne
 } from 'typeorm';
-import { Subprocess } from '../subprocess/subprocess.entity';
-import { Area } from '../area/area.entity';
+
+import { Department } from '../department/department.entity';
+import { Step } from '../step/step.entity';
 
 @Entity({ name: 'process' })
 export class Process {
@@ -16,9 +17,18 @@ export class Process {
   @Column()
   name: string;
 
-  @ManyToOne(() => Area, (area) => area.processes)
-  area: Area;
+  @Column()
+  description: string;
 
-  @OneToMany(() => Subprocess, (subprocess) => subprocess.process)
-  subprocesses: Subprocess[];
+  @Column()
+  startTrigger: string;
+
+  @Column()
+  endTrigger: string;
+
+  @ManyToOne(() => Department, (department) => department.processes)
+  department: Department;
+
+  @OneToMany(() => Step, (step) => step.process)
+  steps: Step[];
 }

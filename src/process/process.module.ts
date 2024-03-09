@@ -1,14 +1,13 @@
 import { Module } from '@nestjs/common';
-import { ProcessService } from './process.service';
-import { ProcessController } from './process.controller';
+
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Process } from './process.entity';
-import { Subprocess } from '../subprocess/subprocess.entity';
-import { Area } from '../area/area.entity';
+import { Department } from '../department/department.entity';
+import { Step } from '../step/step.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Process, Area, Subprocess])],
-  controllers: [ProcessController],
-  providers: [ProcessService]
+  imports: [TypeOrmModule.forFeature([Process, Department, Step])],
+  providers: [],
+  controllers: []
 })
 export class ProcessModule {}
