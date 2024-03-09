@@ -1,3 +1,7 @@
+import { IsNotEmpty, IsString } from 'class-validator';
+
 export class DepartmentDto {
-    readonly title: string;
+  @IsNotEmpty()
+  @IsString()
+  readonly title: string;
 }

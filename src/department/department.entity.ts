@@ -8,7 +8,7 @@ export class Department {
 
   @Column()
   title: string;
-  
+
   @OneToMany(() => Process, (process) => process.department)
   processes: Process[];
 }

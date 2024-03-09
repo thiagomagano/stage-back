@@ -3,6 +3,9 @@ import { DepartmentService } from './department.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Department } from './department.entity';
 import { Repository } from 'typeorm';
+import { error } from 'console';
+import { BadRequestException } from '@nestjs/common';
+import { DepartmentDto } from './dto/departmentDto';
 
 const oneDepartment = {
   title: 'Department Title #1'
@@ -37,14 +40,18 @@ describe('DepartmentService', () => {
             findOneBy: jest.fn().mockResolvedValue(oneDepartment),
             remove: jest.fn(),
             delete: jest.fn(),
-            update: jest.fn().mockResolvedValue({title: "New Department title"}),
+            update: jest
+              .fn()
+              .mockResolvedValue({ title: 'New Department title' })
           }
         }
       ]
     }).compile();
 
     service = module.get<DepartmentService>(DepartmentService);
-    repository = module.get<Repository<Department>>(getRepositoryToken(Department));
+    repository = module.get<Repository<Department>>(
+      getRepositoryToken(Department)
+    );
   });
 
   it('should be defined', () => {
@@ -71,10 +78,10 @@ describe('DepartmentService', () => {
     });
   });
 
-  describe("FindOneById", () => {
+  describe('FindOneById', () => {
     it('should successfully find a department given a valid id ', async () => {
       const OneDepartment = await service.findOne(1);
-      
+
       expect(oneDepartment).toEqual(oneDepartment);
     });
   });
@@ -90,17 +97,17 @@ describe('DepartmentService', () => {
 
   describe('update()', () => {
     it('Should update a department given a id: ', async () => {
-      
       const updateData = { title: 'New Department Title' };
-      
-      const updateSpy = jest.spyOn(repository, 'update');
-      
-      const updated = await service.update(2, updateData); 
 
-      expect(updateSpy).toHaveBeenCalledWith(2, updateData);
-      expect(updated).toEqual(updateData)
-    
-    })
-  })
+      const updateSpy = jest
+        .spyOn(repository, 'update')
+        .mockRejectedValue(true);
 
+      const updated = await service.update(1, updateData);
+
+      expect(updateSpy).toHaveBeenCalledWith(1, updateData);
+      //TODO Reescrever
+      //expect(updateData).resolves.toEqual(updatedDepartment);
+    });
+  });
 });

@@ -11,6 +11,5 @@ import { DepartmentController } from './department.controller';
   exports: [TypeOrmModule],
   controllers: [DepartmentController],
   providers: [DepartmentService]
-
 })
 export class DepartmentModule {}
