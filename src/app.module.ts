@@ -11,7 +11,7 @@ import { DependecyModule } from './dependecy/dependecy.module';
     ProcessModule,
     SubprocessModule,
     AreaModule,
-    DependecyModule,
-  ],
+    DependecyModule
+  ]
 })
 export class AppModule {}

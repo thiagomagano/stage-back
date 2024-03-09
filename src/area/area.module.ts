@@ -8,6 +8,6 @@ import { Process } from '../process/process.entity';
 @Module({
   imports: [TypeOrmModule.forFeature([Area, Process])],
   controllers: [AreaController],
-  providers: [AreaService],
+  providers: [AreaService]
 })
 export class AreaModule {}

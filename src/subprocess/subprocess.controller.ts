@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete
+} from '@nestjs/common';
 import { SubprocessService } from './subprocess.service';
 import { CreateSubprocessDto } from './dto/create-subprocess.dto';
 import { UpdateSubprocessDto } from './dto/update-subprocess.dto';
@@ -23,7 +31,10 @@ export class SubprocessController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateSubprocessDto: UpdateSubprocessDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateSubprocessDto: UpdateSubprocessDto
+  ) {
     return this.subprocessService.update(+id, updateSubprocessDto);
   }
 

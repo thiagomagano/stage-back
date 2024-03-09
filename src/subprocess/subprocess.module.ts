@@ -7,9 +7,8 @@ import { Process } from '../process/process.entity';
 import { Subprocess } from './subprocess.entity';
 
 @Module({
- 
   imports: [TypeOrmModule.forFeature([Subprocess, Process])],
   controllers: [SubprocessController],
-  providers: [SubprocessService],
+  providers: [SubprocessService]
 })
 export class SubprocessModule {}

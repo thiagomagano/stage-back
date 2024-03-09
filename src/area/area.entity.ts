@@ -1,10 +1,4 @@
-import {
-  Entity,
-  Column,
-  PrimaryGeneratedColumn,
-  OneToMany,
-  Relation,
-} from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { Process } from '../process/process.entity';
 
 @Entity()
@@ -15,6 +9,6 @@ export class Area {
   @Column()
   name: string;
 
-  @OneToMany((type) => Process, (process) => process.id)
-  process: Relation<Process[]>;
+  @OneToMany(() => Process, (process) => process.area)
+  processes: Process[];
 }

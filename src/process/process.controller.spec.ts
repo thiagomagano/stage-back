@@ -8,7 +8,7 @@ describe('ProcessController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [ProcessController],
-      providers: [ProcessService],
+      providers: [ProcessService]
     }).compile();
 
     controller = module.get<ProcessController>(ProcessController);

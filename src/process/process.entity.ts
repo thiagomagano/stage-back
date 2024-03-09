@@ -3,10 +3,12 @@ import {
   Column,
   PrimaryGeneratedColumn,
   OneToMany,
+  ManyToOne
 } from 'typeorm';
 import { Subprocess } from '../subprocess/subprocess.entity';
+import { Area } from '../area/area.entity';
 
-@Entity({name: 'process'})
+@Entity({ name: 'process' })
 export class Process {
   @PrimaryGeneratedColumn()
   id: number;
@@ -14,6 +16,9 @@ export class Process {
   @Column()
   name: string;
 
-  @OneToMany((type) => Subprocess, (subprocess) => subprocess.process)
-  subprocess: Subprocess[];
+  @ManyToOne(() => Area, (area) => area.processes)
+  area: Area;
+
+  @OneToMany(() => Subprocess, (subprocess) => subprocess.process)
+  subprocesses: Subprocess[];
 }

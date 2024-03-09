@@ -1,22 +1,15 @@
-import {
-  Column,
-  Entity,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-  Relation,
-} from 'typeorm';
-import { Process } from '../process/process.entity';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Process } from "../process/process.entity";
 
 
-Entity()
+@Entity({name: 'subprocess'})
 export class Subprocess {
-  @PrimaryGeneratedColumn()
-  id: number;
-
-  @Column()
-  name: string;
-
-   @ManyToOne((type) => Process, (process) => process.subprocess)
-   process: Process;
-
+    @PrimaryGeneratedColumn()
+    id: number;
+  
+    @Column()
+    name: string;
+  
+  @ManyToOne(() => Process, (process) => process.subprocesses)
+    process: Process;
 }

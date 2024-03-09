@@ -4,6 +4,6 @@ import { Dependecy } from './dependecy.entity';
 import { Subprocess } from '../subprocess/subprocess.entity';
 
 @Module({
-    imports: [TypeOrmModule.forFeature([Dependecy, Subprocess])],
+  imports: [TypeOrmModule.forFeature([Dependecy, Subprocess])]
 })
 export class DependecyModule {}

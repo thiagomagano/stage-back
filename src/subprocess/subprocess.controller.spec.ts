@@ -8,7 +8,7 @@ describe('SubprocessController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [SubprocessController],
-      providers: [SubprocessService],
+      providers: [SubprocessService]
     }).compile();
 
     controller = module.get<SubprocessController>(SubprocessController);
