@@ -9,30 +9,37 @@ import {
   Put
 } from '@nestjs/common';
 import { CreateStepProcessDto } from './dto/createStepProcessDto';
-import { UpdateStepProcessDto } from '../process/dto/updateProcessDto';
+import { UpdateStepProcessDto } from '../step-process/dto/updateStepProcessDto';
+import { StepProcessService } from './step-process.service';
+import { StepProcess } from './step-process.entity';
 
 @Controller('step-process')
 export class StepProcessController {
+  constructor(private readonly service: StepProcessService) {}
+
   @Post('new')
-  create(@Body() dto: CreateStepProcessDto) {
-    return 'this creates a step-process';
+  async create(@Body() dto: CreateStepProcessDto): Promise<StepProcess> {
+    return await this.service.create(dto);
   }
   @Get()
-  findAll() {
-    return 'this return all step-process';
+  async findAll(): Promise<StepProcess[]> {
+    return await this.service.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return `this return one id: ${id}`;
+  async findOne(@Param('id', ParseIntPipe) id: number): Promise<StepProcess> {
+    return this.service.findOne(id);
   }
   @Put(':id')
-  update(@Param('id') id: string, @Body() dto: UpdateStepProcessDto) {
-    return `this update one step-process: ${id}`;
+  async update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() dto: UpdateStepProcessDto
+  ) {
+    return this.service.update(id, dto);
   }
 
   @Delete(':id')
-  remove(@Param('id', ParseIntPipe) id: number) {
-    return `this remove one id: ${id}`;
+  async remove(@Param('id', ParseIntPipe) id: number) {
+    return this.service.remove(id);
   }
 }

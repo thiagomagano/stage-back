@@ -6,7 +6,6 @@ export class CreateProcessDto {
 
   readonly description: string;
 
-  @IsNotEmpty()
   @IsInt()
   readonly departmentId: number;
 }

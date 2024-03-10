@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { StepProcess } from './step-process.entity';
 import { Repository } from 'typeorm';
 import { CreateStepProcessDto } from './dto/createStepProcessDto';
-import { UpdateStepProcessDto } from '../process/dto/updateProcessDto';
+import { UpdateStepProcessDto } from '../step-process/dto/updateStepProcessDto';
 
 @Injectable()
 export class StepProcessService {
