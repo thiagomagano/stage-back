@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { DepartmentController } from './department.controller';
-import { DepartmentService } from './department.service';
-import { DepartmentDto } from './dto/departmentDto';
+import { DepartmentController } from '../department.controller';
+import { DepartmentService } from '../department.service';
+import { DepartmentDto } from '../dto/departmentDto';
 
 const departmentDto: DepartmentDto = {
   title: 'New Tittle'

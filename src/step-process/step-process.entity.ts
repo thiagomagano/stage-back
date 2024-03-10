@@ -1,10 +1,10 @@
 import { Entity, JoinColumn, ManyToOne, OneToOne } from 'typeorm';
 import { Process } from '../process/process.entity';
-import { BaseProcess } from '../entities/baseProcess.entity';
+import { BaseProcess } from '../utils/base-process.entity';
 
 @Entity('steps')
 export class StepProcess extends BaseProcess {
-  @OneToOne(() => Process)
+  @OneToOne(() => StepProcess)
   @JoinColumn({ name: 'prev_step_id' })
   prev: number;
 

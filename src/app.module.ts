@@ -5,11 +5,12 @@ import { DatabaseModule } from './database.module';
 
 import { AppService } from './app.service';
 import { AppController } from './app.controller';
-import { StepProcessModule } from './stepProcess/stepProcess.module';
+import { StepProcessModule } from './step-process/step-process.module';
+import { StepProcessController } from './step-process/step-process.controller';
 
 @Module({
   imports: [DatabaseModule, ProcessModule, DepartmentModule, StepProcessModule],
   providers: [AppService],
-  controllers: [AppController]
+  controllers: [AppController, StepProcessController]
 })
 export class AppModule {}

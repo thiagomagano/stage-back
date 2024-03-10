@@ -11,7 +11,7 @@ export class DepartmentService {
     private repository: Repository<Department>
   ) {}
 
-  async create(@Body() departmentDto: DepartmentDto): Promise<Department> {
+  async create(departmentDto: DepartmentDto): Promise<Department> {
     return await this.repository.save(departmentDto);
   }
 

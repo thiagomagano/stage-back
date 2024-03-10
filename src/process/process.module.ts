@@ -3,7 +3,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Process } from './process.entity';
 import { Department } from '../department/department.entity';
-import { StepProcess } from '../stepProcess/stepProcess.entity';
+import { StepProcess } from '../step-process/step-process.entity';
 import { ProcessController } from './process.controller';
 import { ProcessService } from './process.service';
 

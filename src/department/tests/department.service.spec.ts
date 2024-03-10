@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { DepartmentService } from './department.service';
+import { DepartmentService } from '../department.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { Department } from './department.entity';
+import { Department } from '../department.entity';
 import { Repository } from 'typeorm';
 
 const oneDepartment = {

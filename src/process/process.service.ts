@@ -2,7 +2,8 @@ import { Body, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Process } from './process.entity';
 import { Repository } from 'typeorm';
-import { ProcessDto } from './dto/processDto';
+import { CreateProcessDto } from './dto/createProcessDto';
+import { UpdateProcessDto } from './dto/updateProcessDto';
 
 @Injectable()
 export class ProcessService {
@@ -10,8 +11,8 @@ export class ProcessService {
     @InjectRepository(Process) private repository: Repository<Process>
   ) {}
 
-  async create(@Body() processDto: ProcessDto): Promise<Process> {
-    return await this.repository.save(processDto);
+  async create(dto: CreateProcessDto): Promise<Process> {
+    return await this.repository.save(dto);
   }
 
   async findAll(): Promise<Process[]> {
@@ -22,16 +23,18 @@ export class ProcessService {
     return await this.repository.findOneBy({ id: id });
   }
 
-  async update(id: number, processDto: ProcessDto): Promise<Process> {
-    await this.repository.update(id, processDto);
+  async update(id: number, dto: UpdateProcessDto): Promise<Process> {
+    const toUpdate = await this.repository.findOneBy({ id: id });
 
-    return this.repository.findOneBy({ id: id });
+    const updated = Object.assign(toUpdate, dto);
+
+    return await this.repository.save(updated);
   }
-  async remove(id: string): Promise<void> {
+  async remove(id: number): Promise<void> {
     await this.repository.delete(id);
   }
 
-  async findAllSubProcess(): Promise<Process[]> {
+  async findAllSteps(): Promise<Process[]> {
     return [];
   }
 
