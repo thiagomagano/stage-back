@@ -65,7 +65,7 @@ describe('DepartmentController', () => {
     });
   });
   describe('findOneById()', () => {
-    it('should find a user', () => {
+    it('should find a department', () => {
       expect(controller.findOneById(1)).resolves.toEqual({
         title: 'New Department # 1',
         id: 1
