@@ -1,9 +1,9 @@
-import { Body, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Process } from './process.entity';
 import { Repository } from 'typeorm';
-import { CreateProcessDto } from './dto/createProcessDto';
 import { UpdateProcessDto } from './dto/updateProcessDto';
+import { CreateProcessDto } from './dto/createProcessDto';
 
 @Injectable()
 export class ProcessService {
@@ -12,7 +12,8 @@ export class ProcessService {
   ) {}
 
   async create(dto: CreateProcessDto): Promise<Process> {
-    return await this.repository.save(dto);
+    const toCreate = Object.assign(dto);
+    return await this.repository.save(toCreate);
   }
 
   async findAll(): Promise<Process[]> {

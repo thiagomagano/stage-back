@@ -31,16 +31,16 @@ export class DepartmentController {
     return this.service.findOne(id);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string): Promise<void> {
-    return this.service.remove(id);
-  }
-
   @Put(':id')
   update(
     @Param('id', ParseIntPipe) id: number,
     @Body() departmentDto: DepartmentDto
   ): Promise<Department> {
     return this.service.update(id, departmentDto);
+  }
+
+  @Delete(':id')
+  remove(@Param('id', ParseIntPipe) id: number): Promise<void> {
+    return this.service.remove(id);
   }
 }

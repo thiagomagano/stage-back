@@ -18,8 +18,8 @@ export class ProcessController {
   constructor(private readonly service: ProcessService) {}
 
   @Post('new')
-  create(@Body() processDto: CreateProcessDto): Promise<Process> {
-    return this.service.create(processDto);
+  create(@Body() dto: CreateProcessDto): Promise<Process> {
+    return this.service.create(dto);
   }
 
   @Get()

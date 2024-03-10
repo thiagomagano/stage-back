@@ -4,10 +4,10 @@ import { BaseProcess } from '../utils/base-process.entity';
 
 @Entity('steps')
 export class StepProcess extends BaseProcess {
-  @OneToOne(() => StepProcess)
+  @OneToOne(() => StepProcess, (step) => step.id)
   @JoinColumn({ name: 'prev_step_id' })
   prev: number;
 
   @ManyToOne(() => Process, (process) => process.steps)
-  parentId: number;
+  parent: number;
 }

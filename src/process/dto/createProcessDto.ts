@@ -1,4 +1,4 @@
-import { IsInt, IsNotEmpty } from 'class-validator';
+import { IsNotEmpty } from 'class-validator';
 
 export class CreateProcessDto {
   @IsNotEmpty()
@@ -6,6 +6,5 @@ export class CreateProcessDto {
 
   readonly description: string;
 
-  @IsInt()
-  readonly departmentId: number;
+  readonly department: number;
 }

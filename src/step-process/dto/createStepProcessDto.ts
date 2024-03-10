@@ -4,13 +4,12 @@ export class CreateStepProcessDto {
   @IsString()
   readonly name: string;
   readonly description: string;
-  readonly departmentId: number;
+
+  readonly prev: number;
 
   @IsNotEmpty()
   @IsInt()
-  readonly prevStepId: number;
+  readonly parent: number;
 
-  @IsNotEmpty()
-  @IsInt()
-  readonly parentId: number;
+  readonly steps: [];
 }
