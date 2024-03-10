@@ -3,9 +3,6 @@ import { DepartmentService } from './department.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Department } from './department.entity';
 import { Repository } from 'typeorm';
-import { error } from 'console';
-import { BadRequestException } from '@nestjs/common';
-import { DepartmentDto } from './dto/departmentDto';
 
 const oneDepartment = {
   title: 'Department Title #1'
@@ -80,7 +77,7 @@ describe('DepartmentService', () => {
 
   describe('FindOneById', () => {
     it('should successfully find a department given a valid id ', async () => {
-      const OneDepartment = await service.findOne(1);
+      const oneDepartment = await service.findOne(1);
 
       expect(oneDepartment).toEqual(oneDepartment);
     });

@@ -5,10 +5,11 @@ export class ProcessDto {
   readonly name: string;
 
   readonly description: string;
-  readonly startTrigger: string;
-  readonly endTrigger: string;
 
   @IsNotEmpty()
   @IsInt()
   readonly departmentId: number;
+
+  @IsInt()
+  readonly parentId: number;
 }

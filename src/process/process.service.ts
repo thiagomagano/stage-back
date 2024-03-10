@@ -30,4 +30,12 @@ export class ProcessService {
   async remove(id: string): Promise<void> {
     await this.repository.delete(id);
   }
+
+  async findAllSubProcess(): Promise<Process[]> {
+    return [];
+  }
+
+  async findParents(): Promise<Process> {
+    return undefined;
+  }
 }
