@@ -17,20 +17,18 @@ export class DepartmentController {
   constructor(private readonly service: DepartmentService) {}
 
   @Post()
-  async create(@Body() departmentDto: DepartmentDto): Promise<Department> {
-    return await this.service.create(departmentDto);
+  create(@Body() departmentDto: DepartmentDto): Promise<Department> {
+    return this.service.create(departmentDto);
   }
 
   @Get()
-  async findAll(): Promise<Department[]> {
-    return await this.service.findAll();
+  findAll(): Promise<Department[]> {
+    return this.service.findAll();
   }
 
   @Get(':id')
-  async findOneById(
-    @Param('id', ParseIntPipe) id: number
-  ): Promise<Department> {
-    return await this.service.findOne(id);
+  findOneById(@Param('id', ParseIntPipe) id: number): Promise<Department> {
+    return this.service.findOne(id);
   }
 
   @Delete(':id')
