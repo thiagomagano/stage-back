@@ -10,6 +10,4 @@ export class CreateStepProcessDto {
   @IsNotEmpty()
   @IsInt()
   readonly parent: number;
-
-  readonly steps: [];
 }

@@ -9,7 +9,7 @@ export class Process extends BaseProcess {
   @ManyToOne(() => Department, (department) => department.processes)
   department: Department;
 
-  @OneToMany(() => StepProcess, (step) => step.parent)
+  @OneToMany(() => StepProcess, (step) => step.parent, { eager: true })
   @JoinTable()
   steps: StepProcess[];
 }

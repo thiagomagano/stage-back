@@ -17,11 +17,16 @@ export class ProcessService {
   }
 
   async findAll(): Promise<Process[]> {
-    return await this.repository.find();
+    return await this.repository.find({
+      relations: {
+        department: true,
+        steps: true
+      }
+    });
   }
 
   async findOne(id: number): Promise<Process> {
-    return await this.repository.findOneBy({ id: id });
+    return await this.repository.findOne({ where: { id: id } });
   }
 
   async update(id: number, dto: UpdateProcessDto): Promise<Process> {

@@ -15,7 +15,7 @@ export class Department {
   @Column()
   title: string;
 
-  @OneToMany(() => Process, (process) => process.department)
+  @OneToMany(() => Process, (process) => process.department, { eager: true })
   @JoinColumn()
   processes: Process[];
 }

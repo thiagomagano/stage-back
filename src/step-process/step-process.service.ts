@@ -16,7 +16,7 @@ export class StepProcessService {
   }
 
   async findAll(): Promise<StepProcess[]> {
-    return await this.repository.find();
+    return await this.repository.find({ loadRelationIds: true });
   }
 
   async findOne(id: number): Promise<StepProcess> {
