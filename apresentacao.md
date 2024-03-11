@@ -64,4 +64,4 @@ Achei o desafio muito massa e desafiador, consegui aprender bastante com ele,  e
 
 ## Considerações Finais
 
-Em resumo, eu apanhei bastante, me frustrei, tive muitos "Skill Issues", me senti sem capacidade em um momento, mas em outro me senti o melhor do mundo. Mas serviu como um bom aprendizado e eu saio muito maior do que quando comecei esse projeto. Foram só 4 dias, mas foram 4 dias intensos, de Suor e Lágrimas em busca de um objetivo que é me tornar um desenvolvedor melhor e isso eu atingi.
+Em resumo, eu apanhei bastante, me frustrei, tive muitos "Skill Issues", me senti sem capacidade em um momento, mas em outro me senti bem com o progresso. Mas serviu como um bom aprendizado e eu saio muito maior do que quando comecei esse projeto. Foram só 4 dias, mas foram 4 dias intensos, de Suor e Lágrimas em busca de um objetivo que é me tornar um desenvolvedor melhor e isso eu atingi.
