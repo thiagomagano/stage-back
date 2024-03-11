@@ -47,3 +47,11 @@ $ npm run test:cov
 Certifique de que tem o docker instalado na máquina:
 
 $ docker compose up
+
+## TO-DO
+
+- [] Documentar API
+- [] Validação e status code de resposta Rotas
+- [] Mais Testes
+- [] Considerar novas rotas
+- [] Melhorar parametrização das Rotas
